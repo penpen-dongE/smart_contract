@@ -27,7 +27,7 @@ def index():
     info = []
     number_of_candidates = voting.functions.get_number_of_candidates().call()
     for i in range(number_of_candidates):
-        info.append(votinf.functions.get_candidate_indp(i).call())
+        info.append(voting.functions.get_candidate_info(i).call())
 
     return render_template('index.html', info=info)
 
