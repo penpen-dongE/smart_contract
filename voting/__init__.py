@@ -30,3 +30,15 @@ def index():
         info.append(votinf.functions.get_candidate_indp(i).call())
 
     return render_template('index.html', info=info)
+
+@app.route('/add', methods=['GET', 'POST'])
+def add():
+    if request.method == 'GET':
+        return redirect(url_for('index'))
+    elif request.method == 'POST':
+        address = request.form['address']
+        name = request.form['name']
+        tx_hash = voting.functions.add_candidate(
+            name).transact({'form': address})
+        tx_receipt = w3.eth.waitForTransactionReceipt(tx_hash)
+        return redirect(url_for('index'))

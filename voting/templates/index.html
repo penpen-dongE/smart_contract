@@ -13,6 +13,14 @@
                 <thead> 
                     <tr> 
                         <th>Candidate</th> 
+                        <div id="msg"></div>
+                        <div>
+                            <form action="/add" method="post">
+                            <p>추가할 호보: 주소 <input type="text" name="address" /></p>
+                            <p>추가할 후보: 이름 <input type="text" name="name" /></p>
+                            <p><button type="submit" value="submit" class="btn btn-primary">후보추가</button></p>
+                        </form>
+                        </div>
                         <th>Votes</th> 
                     </tr> 
                 </thead> 
